@@ -1,10 +1,13 @@
 <header class="topbar">
-  <a routerLink="/" class="brand">map.thienhang.com</a>
+  <a routerLink="/" class="brand">
+    <span class="brand-mark">M</span>
+    <span class="brand-word">map.thienhang.com</span>
+  </a>
   <nav>
     @if (auth.isLoggedIn()) {
-      <button type="button" (click)="logout()">Đăng xuất</button>
+      <button type="button" class="nav-btn" (click)="logout()">Đăng xuất</button>
     } @else {
-      <a routerLink="/login">Đăng nhập</a>
+      <a routerLink="/login" class="nav-btn">Đăng nhập</a>
     }
   </nav>
 </header>

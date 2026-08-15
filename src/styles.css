@@ -5,14 +5,80 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  --brand: #0f6b4f;
-  --brand-dark: #0a4d38;
-  --ink: #1a1a1a;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --bg: #f7f8fa;
+  /* Swiss International — strict palette */
+  --swiss-bg: #ffffff;
+  --swiss-fg: #000000;
+  --swiss-muted: #f2f2f2;
+  --swiss-accent: #ff3000;
+  --swiss-border: #000000;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  background: var(--swiss-bg);
+  color: var(--swiss-fg);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Paper-grain noise, applied globally at very low opacity */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* Reusable Swiss surface textures */
+.swiss-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.swiss-dots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.swiss-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.04) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+/* Numbered section label, e.g. "01. SEARCH" */
+.swiss-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--swiss-accent);
+  margin-bottom: 0.5rem;
 }
