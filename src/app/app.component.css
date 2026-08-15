@@ -1,0 +1,27 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 1.25rem;
+  background: var(--brand-dark);
+  color: #fff;
+}
+
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a,
+nav button {
+  color: #fff;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 0.35rem 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}

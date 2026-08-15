@@ -1,0 +1,12 @@
+<header class="topbar">
+  <a routerLink="/" class="brand">map.thienhang.com</a>
+  <nav>
+    @if (auth.isLoggedIn()) {
+      <button type="button" (click)="logout()">Đăng xuất</button>
+    } @else {
+      <a routerLink="/login">Đăng nhập</a>
+    }
+  </nav>
+</header>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,85 @@
+.map-shell {
+  display: flex;
+  height: calc(100vh - 56px);
+}
+
+.panel {
+  width: 340px;
+  flex-shrink: 0;
+  padding: 1.25rem;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--border);
+}
+
+.panel h1 {
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.search-form button {
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--brand);
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.result-card {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.entity-row {
+  margin: 0.2rem 0;
+}
+
+.entity-label {
+  color: var(--muted);
+}
+
+.error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.layer-toggle {
+  margin-top: 0.5rem;
+}
+
+.map-container {
+  flex: 1;
+}
+
+::ng-deep .warehouse-marker {
+  font-size: 18px;
+  text-align: center;
+  line-height: 24px;
+}

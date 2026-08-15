@@ -1,0 +1,63 @@
+<div class="map-shell">
+  <aside class="panel">
+    <h1>Bản đồ địa chỉ Việt Nam</h1>
+
+    <form class="search-form" (ngSubmit)="search()">
+      <input
+        type="text"
+        name="search"
+        placeholder="Nhập địa chỉ, vd: 123 Nguyễn Huệ, Quận 1, TP.HCM"
+        [(ngModel)]="searchText"
+        [disabled]="searching"
+      />
+      <button type="submit" [disabled]="searching || !searchText.trim()">
+        {{ searching ? 'Đang tìm...' : 'Tìm kiếm' }}
+      </button>
+    </form>
+
+    @if (searchError) {
+      <p class="error">{{ searchError }}</p>
+    }
+
+    @if (geocodeResult) {
+      <div class="result-card">
+        <strong>Vị trí tìm thấy</strong>
+        <p>{{ geocodeResult.displayName }}</p>
+      </div>
+    }
+
+    @if (extraction) {
+      <div class="result-card">
+        <strong>Phân tích địa chỉ</strong>
+        @for (level of extraction.levels; track level.key) {
+          @if (level.entities.length) {
+            <p class="entity-row"><span class="entity-label">{{ level.label_vi }}:</span> {{ level.entities[0].text }}</p>
+          }
+        }
+      </div>
+    }
+
+    <hr />
+
+    <div class="layer-toggle">
+      <label>
+        <input type="checkbox" [checked]="showWarehouses" (change)="toggleWarehouses()" />
+        Điểm giao / kho hàng
+      </label>
+
+      @if (warehousesLoading) {
+        <p class="hint">Đang tải...</p>
+      }
+      @if (warehousesError) {
+        <p class="error">
+          {{ warehousesError }}
+          @if (!auth.isLoggedIn()) {
+            <a routerLink="/login">Đăng nhập</a>
+          }
+        </p>
+      }
+    </div>
+  </aside>
+
+  <div #mapContainer class="map-container"></div>
+</div>

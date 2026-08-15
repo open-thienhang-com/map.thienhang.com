@@ -1,0 +1,22 @@
+<div class="login-shell">
+  <form class="login-card" (ngSubmit)="submit()">
+    <h1>Đăng nhập</h1>
+    <p class="hint">Cần đăng nhập để xem lớp điểm giao / kho hàng.</p>
+
+    <label>
+      Email
+      <input type="email" name="email" [(ngModel)]="email" required autocomplete="email" />
+    </label>
+
+    <label>
+      Mật khẩu
+      <input type="password" name="password" [(ngModel)]="password" required autocomplete="current-password" />
+    </label>
+
+    @if (error) {
+      <p class="error">{{ error }}</p>
+    }
+
+    <button type="submit" [disabled]="loading">{{ loading ? 'Đang đăng nhập...' : 'Đăng nhập' }}</button>
+  </form>
+</div>
